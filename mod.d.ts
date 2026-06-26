@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,17 +16,28 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Fill a one-dimensional ndarray with linearly spaced numeric elements which increment by `1` starting from a specified value.
+* Fills a one-dimensional ndarray with linearly spaced numeric elements which increment by `1` starting from a specified value.
 *
-* @module @stdlib/blas-ext-base-ndarray-gunitspace
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*     -   a zero-dimensional ndarray containing a starting value.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns input ndarray
 *
 * @example
 * var vector = require( '@stdlib/ndarray-vector-ctor' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-* var gunitspace = require( '@stdlib/blas-ext-base-ndarray-gunitspace' );
 *
 * var x = vector( [ 0.0, 0.0, 0.0, 0.0 ], 'generic' );
 * // returns <ndarray>[ 0.0, 0.0, 0.0, 0.0 ]
@@ -38,12 +49,9 @@
 * var out = gunitspace( [ x, start ] );
 * // returns <ndarray>[ 3.0, 4.0, 5.0, 6.0 ]
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function gunitspace<T extends typedndarray<unknown> = typedndarray<unknown>>( arrays: [ T, typedndarray<unknown> ] ): T;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = gunitspace;
